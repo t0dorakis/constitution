@@ -1,0 +1,41 @@
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  font-family: ABCConnect Nail, monospace;
+  color: var(--black);
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background-color: var(--white);
+  z-index: 100;
+  padding: 0 3rem;
+  gap: 1rem;
+
+  /* trabnsparen gradient background from top white to bottom transparent */
+  background: linear-gradient(
+    to bottom,
+    var(--white) 20%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.nav-bar-item {
+  width: fit-content;
+  text-wrap: nowrap;
+  text-decoration: none;
+}
+
+.nav-bar-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.seperator {
+  height: 1px;
+  width: 100%;
+  background-color: var(--black);
+}
