@@ -41,7 +41,7 @@ p {
 
 p:hover,
 p:hover ~ p {
-  font-variation-settings: "opsz" 60, "wght" 460;
+  font-variation-settings: "opsz" 32, "wght" 400;
   color: var(--black) !important;
 }
 
@@ -65,4 +65,20 @@ p:hover ~ p {
     opacity: 1;
     height: 28px;
   }
+}
+
+.highlight-human,
+.highlight-ai {
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+}
+
+.highlight-human:hover {
+  /* color: red; */
+  font-variation-settings: "opsz" 90, "wght" 100;
+}
+
+.highlight-ai:hover {
+  /* color: blue; */
+  font-variation-settings: "opsz" 90, "wght" 100;
 }
