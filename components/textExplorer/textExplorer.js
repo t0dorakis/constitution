@@ -1,4 +1,5 @@
-import { textArray } from "../data/textArray.js";
+import { textArray } from "../../data/textArray.js";
+import "./textExplorer.styles.css";
 
 /* shows the first two lines of text array a+b underneath each other. Whenever a user clicks anywhere
  * on the page, the text is updated in the way that the next object with a and b are between the first two lines.
@@ -16,7 +17,7 @@ export function setupTextExplorer(containerElement) {
   createTextElements(currentEpoch, containerElement);
   changeClasses(currentEpoch);
   // add event listener to the container
-  document.querySelector("#text_explorer").addEventListener("click", () => {
+  containerElement.addEventListener("click", () => {
     if (currentEpoch < textArray.length - 1) {
       currentEpoch++;
       createTextElements(currentEpoch, containerElement);
