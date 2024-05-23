@@ -1,5 +1,7 @@
 import { textArray } from "../../data/textArray.js";
+import { dispatchEvent } from "../eventBus";
 import "./textExplorer.styles.css";
+import store from "../state/store";
 
 /* shows the first two lines of text array a+b underneath each other. Whenever a user clicks anywhere
  * on the page, the text is updated in the way that the next object with a and b are between the first two lines.
@@ -26,6 +28,32 @@ export function setupTextExplorer(containerElement) {
   });
 }
 
+const handleHighlightClick = (type) => {
+  store.getState().setVisibleScene(type);
+  dispatchEvent(`highlight-${type}`, "test");
+};
+// adding this function to the window object so it can be used on basic html attributes
+
+window.handleHighlightClick = handleHighlightClick;
+
+// check if there is the word "AI" or "Human" in the text and if it is wrap those words in a span with the class highlight-ai or higlight-human
+const highlightWords = (text) => {
+  const words = text.split(" ");
+  let newText = "";
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i].toLowerCase();
+    const isHuman = word.includes("human") ? "human" : false;
+    const isAi = word === "ai" || word.includes("machine") ? "ai" : false;
+    const type = isHuman || isAi;
+    if (isHuman || isAi) {
+      newText += `<span class="highlight-${type}" onclick="handleHighlightClick('${type}')">${words[i]}</span> `;
+    } else {
+      newText += `${words[i]} `;
+    }
+  }
+  return newText;
+};
+
 /**
  * @param {number} epoch
  * @param {HTMLDivElement} containerElement
@@ -46,11 +74,11 @@ const createTextElements = (epoch, containerElement) => {
   // create the text elements
   const textA = document.createElement("p");
   textA.classList.add("text-a", `epoch-${epoch}`);
-  textA.innerHTML = currentText.a;
+  textA.innerHTML = highlightWords(currentText.a);
 
   const textB = document.createElement("p");
   textB.classList.add("text-b", `epoch-${epoch}`);
-  textB.innerHTML = currentText.b;
+  textB.innerHTML = highlightWords(currentText.b);
   // get epoch holder with epoch number
   const targetEpochHolder = document.querySelector(`.epoch-holder-${epoch}`);
   targetEpochHolder.append(textA, nextEpochHolder, textB);
