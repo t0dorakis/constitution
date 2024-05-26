@@ -98,6 +98,6 @@
   .grid-item--large {
     width: 20em;
     height: auto;
-    
-    background: rgba(0, 204, 153, 0.18);
+    color: #e2e2e2;
+    background: rgba(255, 255, 255, 0.18);
   }

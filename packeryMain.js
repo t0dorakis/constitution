@@ -13,7 +13,7 @@ document.querySelector("#app").innerHTML = `
   <main>
     <div id="nav_bar"></div>
    
-    <div class="absatz">
+    <div class="absatz filter-n1">
         <span class="grid-item">In</span> 
         <span class="grid-item">light</span> 
         <span class="grid-item">of</span> 
@@ -95,7 +95,14 @@ grid.addEventListener( 'click', function( event ) {
     return;
   }
   addTextToClickedGridItem(event.target);
-  event.target.classList.toggle('grid-item--large');
+
+  if (event.target.classList.contains ('grid-item--large')){
+    return;
+  }else{
+    event.target.classList.add('grid-item--large');
+    //addTextToClickedGridItem(event.target); //-- einblenden, um den text, sobald er einmal erweitert ist, nicht auch noch zu erweitern
+  }
+  
   pckry.layout();
 });
 
@@ -105,9 +112,10 @@ function addTextToClickedGridItem(el){
   //el.insertAdjacentHTML(beforeend, `"so sehr sie sonst darauf achtete, jedem den Anblick von Gregors Zimmer zu ersparen, geradewegs zum Fenster und riß es, als ersticke sie fast, mit hastigen Händen auf,"`);
   el.innerHTML += `"so sehr sie sonst darauf achtete, jedem den Anblick von Gregors Zimmer zu ersparen, geradewegs zum Fenster und riß es, als ersticke sie fast, mit hastigen Händen auf,"`;
   el.style.paddingTop = "0.6em";
-  el.style.color = "black";
+  el.style.color = "e2e2e2";
   el.style.fontSize = "0.75em";
   el.style.lineHeight = "110%";
+  el.classList.add("filter-n2");
   //el.borderRadius = "0.5em";
 }
 
