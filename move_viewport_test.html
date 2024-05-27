@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viewport Centering</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible; /* Changed to allow scrolling */
+        }
+        #content {
+            width: 200%;
+            height: 200%;
+            position: relative;
+            background: linear-gradient(135deg, #ffcc33 25%, #ff66cc 75%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            text-align: center;
+        }
+        #text {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="text">
+            This is a sample text to help visualize the movement of the viewport when you click anywhere on the screen. Click at different points to see the effect!
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('click', function(event) {
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const clickX = event.pageX;
+            const clickY = event.pageY;
+
+            // Calculate the position to scroll to
+            const scrollX = clickX - viewportWidth / 2;
+            const scrollY = clickY - viewportHeight / 2;
+
+            // Smoothly scroll to the calculated position
+            window.scrollTo({
+                left: scrollX,
+                top: scrollY,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
+
