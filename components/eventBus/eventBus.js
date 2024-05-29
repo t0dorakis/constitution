@@ -1,6 +1,7 @@
 export const events = {
   highlightHuman: 'highlight-human',
   highlightAi: 'highlight-ai',
+  openArea: 'open-area',
 }
 
 /**
