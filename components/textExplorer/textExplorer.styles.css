@@ -13,9 +13,18 @@
   max-width: 80%;
   transition: all 0.2s ease-in-out;
   font-family: ABCGrammercy, serif;
-  font-variation-settings: "opsz" 56, "wght" 400;
-  font-feature-settings: "calt" 1, "liga" 1, "rvrn" 1, "kern" 1, "rclt" 1,
-    "rlig" 1, "dlig" 1, "ss06" 1; /* font-variant-ligatures:  */
+  font-variation-settings:
+    'opsz' 56,
+    'wght' 400;
+  font-feature-settings:
+    'calt' 1,
+    'liga' 1,
+    'rvrn' 1,
+    'kern' 1,
+    'rclt' 1,
+    'rlig' 1,
+    'dlig' 1,
+    'ss06' 1; /* font-variant-ligatures:  */
 }
 
 .epoch-holder {
@@ -39,11 +48,11 @@ p {
   text-wrap: nowrap;
 }
 
-p:hover,
+/* p:hover,
 p:hover ~ p {
   font-variation-settings: "opsz" 32, "wght" 400;
   color: var(--black) !important;
-}
+} */
 
 ::selection {
   background-color: transparent;
@@ -73,12 +82,13 @@ p:hover ~ p {
   transition: all 0.2s ease-in-out;
 }
 
-.highlight-human:hover {
-  /* color: red; */
-  font-variation-settings: "opsz" 90, "wght" 100;
-}
+/* .highlight-human:hover {
+  cursor: cell;
+  color: #020202;
+} */
 
-.highlight-ai:hover {
-  /* color: blue; */
-  font-variation-settings: "opsz" 90, "wght" 100;
-}
+/* .highlight-ai:hover {
+  font-variation-settings:
+    'opsz' 90,
+    'wght' 100;
+} */

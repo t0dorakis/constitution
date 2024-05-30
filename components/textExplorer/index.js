@@ -1,1 +1,1 @@
-export * from "./textExplorer";
+export * from './textExplorer'

@@ -1,0 +1,94 @@
+#text_canvas {
+  min-width: 100vw;
+  min-height: 100vh;
+  /* overflow: hidden; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  transition: all 0.4s ease-in-out;
+  font-family: ABCGrammercy, serif;
+  font-size: 2rem;
+  font-variation-settings:
+    'opsz' 56,
+    'wght' 400;
+  font-feature-settings:
+    'calt' 1,
+    'liga' 1,
+    'rvrn' 1,
+    'kern' 1,
+    'rclt' 1,
+    'rlig' 1,
+    'dlig' 1,
+    'ss06' 1;
+  /* font-variant-ligatures:  */
+}
+p {
+  /* background: rgba(0, 0, 0, 0.5); */
+}
+/* p .brother-left:last-of-type {
+  color: royalblue;
+} */
+
+span {
+  transition: all 0.2s ease-in-out;
+}
+
+.brother-left:has(+ :not(.brother-left)) {
+  transition: all 0.2s ease-in-out;
+  /* color: royalblue; */
+  margin-right: 100px;
+}
+
+.brother-right:nth-child(1 of .brother-right) {
+  transition: all 0.2s ease-in-out;
+  /* color: royalblue; */
+  margin-left: 200px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.open-element {
+  position: relative;
+}
+.level-element {
+  position: absolute;
+  display: block;
+  text-wrap: pretty;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  opacity: 0;
+  /* background: rgba(20, 0, 0, 0.5); */
+}
+.level-1 {
+  font-size: 0.6rem;
+  font-family: monospace
+}
+
+.level-link {
+    font-variation-settings: "opsz" 90, "wght" 500;
+}
+.level-link:hover {
+  cursor: cell;
+  color: #020202;
+}
+
+.zoomer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 100;
+}
