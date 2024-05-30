@@ -1,0 +1,103 @@
+@font-face {
+    font-family: "ABCGrammercy";
+    src: url("assets/fonts/ABCGramercyVariable-Trial.woff2");
+  }
+  
+  @font-face {
+    font-family: "ABCConnect Nail";
+    src: url("assets/fonts/ABCConnect-Nail-Trial.woff2");
+  }
+  
+  :root {
+    font-family: Baskerville, Georgia, serif;
+    line-height: 1.5;
+    font-weight: 200;
+    top: 0;
+    color-scheme: light dark;
+    color: black;
+    background: white;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* VARIABLES */
+    --white: #ffffff;
+    --black: #000000;
+    --gray-900: #1a1a1a;
+    --gray-800: #333333;
+    --gray-700: #4d4d4d;
+    --gray-600: #666666;
+    --gray-500: #808080;
+    --gray-400: #999999;
+    --gray-300: #b3b3b3;
+    --gray-200: #cccccc;
+    --gray-100: #e5e5e5;
+    --gray-50: #f8f8f8;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  
+  
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
+  
+  #app {
+    
+    margin: 0 auto;
+    text-align: left;
+  }
+  #threeCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  main {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  article {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    max-width: 30ch;
+  }
+  
+  .absatz {
+    position: relative;
+    width: 800px;
+  }
+  
+  .absatz:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  
+  span{
+    display:inline-block;
+    background-color: var(--gray-50);
+    /*border-style: solid;
+    border-width: 1px;
+    border-color: var(--gray-800);*/
+    float: left;
+    padding-right: 0.2em;
+  }
+  
+  .grid-item--large {
+    width: 20em;
+    height: auto;
+    color: #e2e2e2;
+    background: rgba(255, 255, 255, 0.18);
+  }

@@ -17,6 +17,7 @@
     "vite": "^5.2.0"
   },
   "dependencies": {
+    "packery": "^2.1.2",
     "three": "^0.164.1",
     "zustand": "^4.5.2"
   }
