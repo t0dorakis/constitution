@@ -1,28 +1,5 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <style>
-      .filter-n0 {
-          filter: url(#n0);
-      }
-
-      .filter-n1 {
-          filter: url(#n1);
-      }
-
-      .filter-n2 {
-          filter: url(#n2);
-      }
-      
-       
-  </style>
-  </head>
-  <body>
-    <svg class="fixed inset-0 transform -translate-x-full">
+export default `
+<svg class="fixed inset-0 transform -translate-x-full">
       <defs>
           <filter id="n0">
               <feTurbulence type="turbulence" baseFrequency="0.001 0.1" numOctaves="5" result="NOISE"></feTurbulence>
@@ -72,8 +49,4 @@
               <feBlend in="D_GREEN" in2="RB" result="RGB" mode="multiply"/>
           </filter>
       </defs>
-    </svg>
-    <div id="app"></div>
-    <script type="module" src="/packeryMain.js"></script>
-  </body>
-</html>
+  </svg>`

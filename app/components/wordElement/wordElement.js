@@ -1,6 +1,5 @@
 import { store } from '../state/store'
 import { events, dispatchEvent, subscribeToEvent } from '../eventBus/eventBus'
-import { levelTexts } from '../../data/manifestoProto'
 import { addLevelElement } from '../levelUtils/addLevelElement'
 const setPositionAttributes = (element) => {
   const rect = element.getBoundingClientRect()
@@ -18,9 +17,14 @@ const handleHighlightClick = (element, type) => {
     dispatchEvent(events.openArea, element)
   }
 
+  if (type === 'human') {
+          dispatchEvent(`highlight-human`, 'test')
+      store.getState().setVisibleScene('human')
+    return
+  }
+  console.log('HIGHLIGHT', type)
+
   addLevelElement(element, type)
-  store.getState().setVisibleScene(type)
-  dispatchEvent(`highlight-${type}`, 'test')
 }
 // adding this function to the window object so it can be used on basic html attributes
 
@@ -32,7 +36,7 @@ function getProximityDirection(element, senderElement, distance) {
   //  the space that is neede
   const area = {
     width: 200,
-    height: 250,
+    height: 300,
   }
 
   const rect1 = element.getBoundingClientRect()
@@ -85,7 +89,7 @@ export const WordElement = (word, uuid) => {
     if (element) setPositionAttributes(element)
 
     const close = getProximityDirection(element, sender, 10)
-    if (close.length > 0) {
+    if (close && close.length > 0) {
       //  element should get red border
       // element.style.border = '1px solid red'
       // if left of it add margin-left of 100px
@@ -96,21 +100,40 @@ export const WordElement = (word, uuid) => {
       }
     }
   })
-  const lowerCaseWord = word.toLowerCase()
-  const isHuman = lowerCaseWord.includes('human') ? 'human' : false
-  const isAi =
-    lowerCaseWord === 'ai' || lowerCaseWord.includes('machine') ? 'ai' : false
-  const type = isHuman || isAi
+
+  const type = checkIfElementIsHiglighted(word)
 
   const span = document.createElement('span')
   span.textContent = word + ' ' // Add space after each word
   span.dataset.uuid = uuid // give it a random id
+    if (type) {
+    span.className = `highlight-${type} level-link`
+  }
   span.onclick = () => handleHighlightClick(span, type)
   // write position in custom attributes
 
-  if (type) {
-    span.className = `highlight-${type} level-link`
-  }
+
 
   return span
+}
+
+const listOfHiglightedWords = [
+  'humanity',
+  'engineer',
+  'human',
+]
+
+const checkIfElementIsHiglighted = (word) => {
+  const lowerCaseWord = word.toLowerCase()
+
+
+  
+  if (listOfHiglightedWords.includes(lowerCaseWord)) {
+    return lowerCaseWord
+  }
+    if (lowerCaseWord.includes('human')) {
+      return 'human'
+
+
+  }
 }

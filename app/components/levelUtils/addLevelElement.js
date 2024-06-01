@@ -1,5 +1,6 @@
 import { store } from '../state/store'
 import { levelTexts } from '../../data/manifestoProto'
+import { textSplitter } from '../textSplitter'
 // add a new elment to the document absolutly positioned to the bottom of the clicked element
 // the new element has smaller text inside
 const addAbsolutePositionedElement = (element, text, level) => {
@@ -13,8 +14,7 @@ const addAbsolutePositionedElement = (element, text, level) => {
   newElement.style.height = 200 + 'px'
   element.classList.add('open-element')
   newElement.classList.add('level-element', `level-${level}`)
-
-  newElement.innerHTML = text
+  newElement.appendChild(textSplitter(text))
 
   // TODO: remove the click event from the element that was clicked already
   // TODO: use text splitter again to create subtexts of the level element - recursion
