@@ -15,5 +15,6 @@ export default [
       'no-unused-vars': ['warn'],
       semi: ['warn', 'never'],
     },
+    extends: ['prettier'],
   },
 ]
