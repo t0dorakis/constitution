@@ -33,7 +33,6 @@ const transformTarget = (target, x, y, level) => {
 }
 
 export const setupZoomer = (element, target) => {
-  console.log('ZOOMER', element, target)
 
   const zoomOutButton = document.createElement('button')
   zoomOutButton.innerHTML = 'Reset'

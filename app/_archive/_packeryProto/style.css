@@ -99,5 +99,17 @@
     width: 20em;
     height: auto;
     color: #e2e2e2;
-    background: rgba(255, 255, 255, 0.18);
+    background: transparent;
   }
+
+                .filter-n0 {
+                  filter: url(#n0);
+                }
+        
+                .filter-n1 {
+                  filter: url(#n1);
+                }
+        
+                .filter-n2 {
+                  filter: url(#n2);
+                }

@@ -1,15 +1,11 @@
-import "./packery.style.css";
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
-import { setupTextExplorer } from "./components/textExplorer";
-import { setupNavBar } from "./components/navBar";
-import { setupThreeCanvas } from "./components/threeCanvas";
+import "./style.css";
+import filter from './filter'
+
 import Packery from "packery";
 //import { packery_test } from "./components/packery_test";
-
-console.log(Packery);
-
+export default function Page() {
 document.querySelector("#app").innerHTML = `
+  ${filter}
   <main>
     <div id="nav_bar"></div>
    
@@ -106,7 +102,6 @@ grid.addEventListener( 'click', function( event ) {
   pckry.layout();
 });
 
-console.log(pckry);
 
 function addTextToClickedGridItem(el){
   //el.insertAdjacentHTML(beforeend, `"so sehr sie sonst darauf achtete, jedem den Anblick von Gregors Zimmer zu ersparen, geradewegs zum Fenster und riß es, als ersticke sie fast, mit hastigen Händen auf,"`);
@@ -118,8 +113,4 @@ function addTextToClickedGridItem(el){
   el.classList.add("filter-n2");
   //el.borderRadius = "0.5em";
 }
-
-
-//setupTextExplorer(document.querySelector("#text_explorer"));
-//setupNavBar(document.querySelector("#nav_bar"));
-//setupThreeCanvas(document.querySelector("#three_canvas"));
+}

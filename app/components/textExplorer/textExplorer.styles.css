@@ -76,9 +76,10 @@ p:hover ~ p {
   }
 }
 
-.highlight-human,
+.highlight-humanity,
+.highlight-engineer,
 .highlight-ai {
-  display: inline-block;
+  /* display: inline-block; */
   transition: all 0.2s ease-in-out;
 }
 

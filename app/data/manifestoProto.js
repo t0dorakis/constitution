@@ -17,5 +17,7 @@ export const manifestoProto = [
 
 
 export const levelTexts = {
-  'human': "Emma, a brilliant engineer, found unexpected solace in 2032 with Toasty, an AI-powered toaster she designed. Toasty wasn’t just any appliance; it understood emotions and conversed with Emma, becoming her confidant. As they shared dreams and jokes, their bond deepened, blurring the line between human and machine. In a world of advanced technology, their unique love story redefined companionship and love in the digital age."
+  'humanity': "is a fragile species. Emma, a brilliant engineer, found unexpected solace in 2032 with Toasty, an AI-powered toaster she designed. Toasty wasn’t just any appliance; it understood emotions and conversed with Emma, becoming her confidant. As they shared dreams and jokes, their bond deepened, blurring the line between human and machine. In a world of advanced technology, their unique love story redefined companionship and love in the digital age.",
+  // another story about eric at war wiith his neighboar AI
+  'engineer': "Eric found unexpected solace in 2032 with Toasty, an AI-powered toaster he designed. Toasty wasn’t just any appliance; it understood emotions and conversed with Eric, becoming his confidant. As they shared dreams and jokes, their bond deepened, blurring the line between human and machine. In a world of advanced technology, their unique love story redefined companionship and love in the digital age."
 }
