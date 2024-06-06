@@ -9,8 +9,6 @@ const setPositionAttributes = (element) => {
   element.setAttribute('data-height', rect.height)
 }
 
-
-
 const handleHighlightClick = (element, type) => {
   //  get current position of the element
   if (type) {
@@ -22,13 +20,10 @@ const handleHighlightClick = (element, type) => {
       store.getState().setVisibleScene('human')
     return
   }
-  console.log('HIGHLIGHT', type)
-
   addLevelElement(element, type)
 }
 // adding this function to the window object so it can be used on basic html attributes
 
-// window.handleHighlightClick = handleHighlightClick;
 
 function getProximityDirection(element, senderElement, distance) {
   const directions = []
@@ -41,20 +36,6 @@ function getProximityDirection(element, senderElement, distance) {
 
   const rect1 = element.getBoundingClientRect()
   const rect2 = senderElement.getBoundingClientRect()
-
-  // Calculate distances between the edges
-  // const leftDistance = Math.abs(rect1.right - rect2.left)
-  // const rightDistance = Math.abs(rect2.right - rect1.left)
-  // const topDistance = Math.abs(rect1.bottom - rect2.top)
-  // const bottomDistance = Math.abs(rect2.bottom - rect1.top)
-
-  // const horizontalClose =
-  //   Math.abs(rect1.left - rect2.right) <= distance ||
-  //   Math.abs(rect1.right - rect1.width - rect2.left) <= distance
-
-  // const verticalClose =
-  //   Math.abs(rect1.top - rect2.bottom) <= distance ||
-  //   Math.abs(rect1.bottom - rect2.top) <= distance
 
   const senderCenter = {
     x: (rect2.left + rect2.right) / 2,
@@ -131,9 +112,7 @@ const checkIfElementIsHiglighted = (word) => {
   if (listOfHiglightedWords.includes(lowerCaseWord)) {
     return lowerCaseWord
   }
-    if (lowerCaseWord.includes('human')) {
-      return 'human'
-
-
+  if (lowerCaseWord.includes('human')) {
+    return 'human'
   }
 }
