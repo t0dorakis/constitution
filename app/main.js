@@ -1,12 +1,8 @@
-import "./global.css";
-import { setupNavBar } from "./components/navBar";
-import { router } from "./router";
+import './global.css'
+import { router } from './router'
 
-document.querySelector("#root").innerHTML = `
-  <main>
-    <div id="nav_bar"></div>
+document.querySelector('#root').innerHTML = `
     <div id="app"></div>
-  </main>`;
+`
 
-setupNavBar(document.querySelector("#nav_bar"));
-router.init();
+router.init()

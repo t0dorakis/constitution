@@ -1,0 +1,108 @@
+a.visited {
+    color: var(--gray-200) !important;
+}
+
+/* visited links should not have any hover effect */
+a.visited:hover span {
+    color: var(--gray-200) !important;
+    transform: none !important;
+    filter: none !important;
+}
+
+.basic-text a {
+    color: var(--black);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a.simpleAppend span:hover {
+    text-decoration: underline;
+    filter: url(#n2) blur(0.5px);
+    color: var(--white);
+}
+
+a.sideDrawer {
+    position: relative;
+    text-decoration: none;
+    /* show an asterix on the top right corner of the link */
+}
+a.sideDrawer span {
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+}
+a.sideDrawer:after {
+    content: ' ' attr(data-id);
+    font-variant-position: sub;
+    font-variant-numeric: oldstyle-nums;
+    vertical-align: super;
+    display: inline-block;
+    position: absolute;
+    font-size: 1.7rem;
+    transform: translate(0px, -20px);
+}
+
+a.sideDrawer:hover {
+    /* the link consists of spans per character, on hover these spans should be transformed in a way that they appear as forming an arc */
+    color: var(--black);
+}
+
+a.sideDrawer:hover span:nth-child(1) {
+    transform: translate(0px, -0px) rotate(-10deg);
+}
+a.sideDrawer:hover span:nth-child(2) {
+    transform: translate(0px, -6px) rotate(-5deg);
+}
+a.sideDrawer:hover span:nth-child(3) {
+    transform: translate(0px, -12px) rotate(-2deg);
+}
+a.sideDrawer:hover span:nth-child(4) {
+    transform: translate(0px, -18px) rotate(0deg);
+}
+a.sideDrawer:hover span:nth-child(5) {
+    transform: translate(0px, -12px) rotate(2deg);
+}
+a.sideDrawer:hover span:nth-child(6) {
+    transform: translate(0px, -6px) rotate(5deg);
+}
+a.sideDrawer:hover span:nth-child(7) {
+    transform: translate(0px, -0px) rotate(10deg);
+}
+/* and back up again */
+a.sideDrawer:hover span:nth-child(8) {
+    transform: translate(0px, 6px) rotate(-10deg);
+}
+a.sideDrawer:hover span:nth-child(9) {
+    transform: translate(0px, 12px) rotate(-5deg);
+}
+a.sideDrawer:hover span:nth-child(10) {
+    transform: translate(0px, 18px) rotate(0deg);
+}
+a.sideDrawer:hover span:nth-child(11) {
+    transform: translate(0px, 12px) rotate(5deg);
+}
+a.sideDrawer:hover span:nth-child(12) {
+    transform: translate(0px, 6px) rotate(10deg);
+}
+/* and back down again */
+a.sideDrawer:hover span:nth-child(13) {
+    transform: translate(0px, -6px) rotate(-10deg);
+}
+a.sideDrawer:hover span:nth-child(14) {
+    transform: translate(0px, -12px) rotate(-5deg);
+}
+a.sideDrawer:hover span:nth-child(15) {
+    transform: translate(0px, -18px) rotate(0deg);
+}
+a.sideDrawer:hover span:nth-child(16) {
+    transform: translate(0px, -12px) rotate(5deg);
+}
+a.sideDrawer:hover span:nth-child(17) {
+    transform: translate(0px, -6px) rotate(10deg);
+}
+/* and back up again */
+a.sideDrawer:hover span:nth-child(18) {
+    transform: translate(0px, 6px) rotate(-10deg);
+}
+a.sideDrawer:hover span:nth-child(19) {
+    transform: translate(0px, 12px) rotate(-5deg);
+}

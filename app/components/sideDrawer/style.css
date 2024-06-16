@@ -1,0 +1,34 @@
+.side-drawer {
+    transition: all 0.2s ease-in-out;
+    width: 0;
+    height: 100%;
+    background-color: var(--white);
+    overflow: hidden;
+}
+
+.side-drawer.has-notes {
+    width: 200px;
+}
+
+.side-note:before {
+    content: ' ' attr(data-id);
+    font-variant-position: sub;
+    font-variant-numeric: oldstyle-nums;
+    vertical-align: super;
+    font-size: 1rem;
+    margin-right: 6px;
+    /* display: block; */
+    /* position: absolute; */
+    /* font-size: 1.7rem; */
+    /* transform: translate(0px, -20px); */
+}
+
+.side-note {
+    font-family: 'ABCConnect Nail', monospace;
+    font-size: 0.75rem;
+    text-align: left;
+    margin-bottom: 1rem;
+
+    padding: 0.35rem 1rem;
+    color: var(--gray-800);
+}
