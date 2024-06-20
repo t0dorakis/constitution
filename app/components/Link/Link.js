@@ -1,13 +1,21 @@
-import { simpleAppend, sideDrawerAppend } from '../../utils/appendors'
+import {
+    simpleAppend,
+    sideDrawerAppend,
+    inParagraphAppend,
+} from '../../utils/appendors'
 import './style.css'
 
-const handleClick = (type, id, container) => {
+const handleClick = (type, element, container) => {
+    const id = element.dataset.id
     switch (type) {
         case 'simpleAppend':
             simpleAppend(id, container)
             break
         case 'sideDrawer':
             sideDrawerAppend(id)
+            break
+        case 'inParagraphAppend':
+            inParagraphAppend(id, element, container)
             break
         default:
             simpleAppend(id, container)
@@ -20,6 +28,8 @@ const getType = (classList) => {
             return 'simpleAppend'
         case 'sideDrawer':
             return 'sideDrawer'
+        case 'inParagraphAppend':
+            return 'inParagraphAppend'
         default:
             return 'simpleAppend'
     }
@@ -37,7 +47,7 @@ export const Link = (originalElement, container) => {
         // add the visited pseudo class to the link
         originalElement.classList.add('visited')
         e.preventDefault()
-        handleClick(type, originalElement.dataset.id, container)
+        handleClick(type, originalElement, container)
     })
     return originalElement
 }
