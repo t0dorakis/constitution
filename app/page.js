@@ -1,12 +1,16 @@
-import Manifesto from './data/Manifesto_1.1'
-import { setupTextThrower } from './components/textThrower/textThrower'
+import { setupBasicText } from './components/basicText'
+import { SideDrawer } from './components/sideDrawer'
 export default function Page() {
-  document.querySelector("#app").innerHTML = `
+    document.querySelector('#app').innerHTML = `
+    <div id="side_drawer"></div>
     <main>
-      <div id="text_thrower"></div>
+        <h1 class="hero-text">
+          Welcome to the <br/>
+          User Manual
+        </h1>
+        <div id="basic_text" class="basic-text"></div>
     </main>
-  `;
-console.log(document.querySelector('#text_thrower'))
-  setupTextThrower(document.querySelector('#text_thrower'), Manifesto)
-
+  `
+    SideDrawer().init(document.querySelector('#side_drawer'))
+    setupBasicText(document.querySelector('#basic_text'))
 }
