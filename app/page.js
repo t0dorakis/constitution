@@ -1,4 +1,5 @@
 import { setupBasicText } from './components/basicText'
+import { Effector } from './components/effector'
 import { SideDrawer } from './components/sideDrawer'
 export default function Page() {
     document.querySelector('#app').innerHTML = `
@@ -12,5 +13,6 @@ export default function Page() {
     </main>
   `
     SideDrawer().init(document.querySelector('#side_drawer'))
+    Effector().init(document.querySelector('#app'))
     setupBasicText(document.querySelector('#basic_text'))
 }
