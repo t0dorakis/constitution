@@ -40,7 +40,6 @@
   transition: all 0.2s ease-in-out;
 } */
 
-
 main {
     padding: 1rem;
 }
@@ -54,8 +53,9 @@ main {
     line-height: 90%;
     margin-block-start: 0;
     margin-block-end: 0;
-    transform: translateX(-1%);
     color: var(--gray-500);
+    transform: translateX(-5px);
+
     /* fadein on load  */
     animation: fadeIn 1s ease-in-out forwards;
 }
@@ -84,4 +84,25 @@ main {
     margin-block-end: 0;
     max-width: 46ch;
     line-height: 120%;
+}
+
+.inside-paragraph-container {
+    margin-left: 20%;
+}
+p.inside-paragraph {
+    color: black;
+    max-width: 100%;
+    font-size: 1.5rem;
+    font-variation-settings:
+        'opsz' 56,
+        'wght' 400;
+    font-feature-settings:
+        'calt' 1,
+        'liga' 1,
+        'rvrn' 1,
+        'kern' 1,
+        'rclt' 1,
+        'rlig' 1,
+        'dlig' 1;
+    /* 'ss06' 1; */
 }

@@ -7,6 +7,7 @@ export const sideDrawerAppend = async (id) => {
     const fetchedText = await fetchTextByUrl('texts/sideNotes/' + id + '.xml')
     // Create a temporary DOM element to hold fetched HTML
     const tempElement = document.createElement('div')
+    tempElement.classList.add('side-note')
     tempElement.innerHTML = fetchedText
     store.getState().addSideNote(tempElement)
 }

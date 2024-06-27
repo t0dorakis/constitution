@@ -13,7 +13,6 @@ export const simpleAppend = async (id, container) => {
 
     // Get all direct children of tempElement
     const children = Array.from(tempElement.children)
-
     // Animate the new children elements
     await streamElements(children, container)
 }

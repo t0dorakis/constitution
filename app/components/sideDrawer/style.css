@@ -4,13 +4,14 @@
     height: 100%;
     background-color: var(--white);
     overflow: hidden;
+    min-height: 100vh;
 }
 
 .side-drawer.has-notes {
     width: 200px;
 }
 
-.side-note:before {
+p.side-note:before {
     content: ' ' attr(data-id);
     font-variant-position: sub;
     font-variant-numeric: oldstyle-nums;
@@ -23,12 +24,27 @@
     /* transform: translate(0px, -20px); */
 }
 
-.side-note {
+p.side-note {
     font-family: 'ABCConnect Nail', monospace;
     font-size: 0.75rem;
     text-align: left;
     margin-bottom: 1rem;
-
     padding: 0.35rem 1rem;
     color: var(--gray-800);
+    /* animation-delay: 0.5s; */
+    /* transition: all 0.5s ease-in-out; */
+}
+/* animation moves in from the top */
+@keyframes slideIn {
+    from {
+        transform: translateY(-200%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+div.side-note {
+    /* transform: translateY(200%); */
+    animation: slideIn 0.4s ease forwards;
 }
