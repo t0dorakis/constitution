@@ -2,11 +2,14 @@ import './style.css'
 import { store } from '../../utils/state/store'
 
 const wildnessLevel = store.getState().wildernessLevel
+const maxWildernessLevel = 10
 
-function randomMarkTextNode(
-    node,
-    probability = 1 / wildnessLevel ** wildnessLevel,
-) {
+function randomMarkTextNode(node) {
+    const wildernessLevel = store.getState().wildernessLevel
+    const probability = wildernessLevel / 1000
+    if (probability === 0) {
+        return
+    }
     const text = node.textContent
     const markedText = text
         .split('')
@@ -57,7 +60,6 @@ export const Effector = () => {
     let interval
     const _render = () => {
         if (!element) return
-        applyRandomMarking(element)
     }
 
     const onMouseMove = (event) => {
@@ -79,10 +81,16 @@ export const Effector = () => {
 
             window.addEventListener('mousemove', onMouseMove)
 
-            _render()
-
             interval = setInterval(() => {
-                applyRandomMarking(element)
+                // get main element
+                const basicText = element.querySelector('.basic-text')
+                const sideDrawer = element.querySelector('#side_drawer')
+                if (basicText) {
+                    // applyRandomMarking(basicText)
+                }
+                if (sideDrawer) {
+                    applyRandomMarking(sideDrawer)
+                }
             }, 100)
 
             // remove the event listener when the component is destroyed

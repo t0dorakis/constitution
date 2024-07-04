@@ -45,6 +45,10 @@ a.sideDrawer:hover {
     /* the link consists of spans per character, on hover these spans should be transformed in a way that they appear as forming an arc */
     color: var(--black);
 }
+a.pictureAppend:hover {
+    /* the link consists of spans per character, on hover these spans should be transformed in a way that they appear as forming an arc */
+    color: blue;
+}
 
 a.sideDrawer:hover span:nth-child(1) {
     transform: translate(0px, -0px) rotate(-10deg);
