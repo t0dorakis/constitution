@@ -220,8 +220,6 @@ export const threeCanvas = () => {
         }
         // moveFingersRandomly()
         // renderer.render(scene, camera)
-        console.log('RENDER', scene.children.length)
-
         // call rquestAnimationFrame again with the args of _render
         requestAnimationFrame(_render)
     }
