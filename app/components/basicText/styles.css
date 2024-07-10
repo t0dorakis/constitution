@@ -55,7 +55,7 @@ main {
     margin-block-end: 0;
     color: var(--gray-500);
     transform: translateX(-5px);
-
+    min-height: 150px;
     /* fadein on load  */
     animation: fadeIn 1s ease-in-out forwards;
 }

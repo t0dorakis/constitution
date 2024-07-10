@@ -2,10 +2,11 @@ import * as THREE from 'three'
 import './styles.css'
 //  orbit controls
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-import { Main, PerspectiveCameraAuto } from '@three.ez/main'
+import { PerspectiveCameraAuto } from '@three.ez/main'
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js'
 import * as TWEEN from '@tweenjs/tween.js'
 import { store } from '../../utils/state/store'
+import { subscribeToEvent, events } from '../eventBus/eventBus'
 
 window.mesh = null
 
@@ -18,17 +19,16 @@ let scene,
     renderer,
     effect,
     arm,
-    main,
     bones = {},
     gui
 
 export const threeCanvas = () => {
     const initScene = async (container) => {
         // if (scene) return
-        if (gui) gui.destroy()
+        // if (gui) gui.destroy()
 
-        gui = new dat.GUI()
-        const armFolder = gui.addFolder('Arm')
+        // gui = new dat.GUI()
+        // const armFolder = gui.addFolder('Arm')
 
         scene = null
         scene = new THREE.Scene()
@@ -60,43 +60,38 @@ export const threeCanvas = () => {
         const loader = new GLTFLoader()
         await loader.load('/app/assets/models/armature2.glb', async (gltf) => {
             const model = gltf.scene
-            const bonesFolder = armFolder.addFolder('Bones')
+            // const bonesFolder = armFolder.addFolder('Bones')
 
             model.traverse((object) => {
                 if (object.isBone) {
-                    console.log('BONE', object.name)
                     bones[object.name] = object
-                    const thisFolder = bonesFolder.addFolder(object.name)
-                    console.log('BONE', object)
-                    thisFolder.add(
-                        object.rotation,
-                        'x',
-                        -(Math.PI * 2),
-                        Math.PI * 2,
-                    )
-                    thisFolder.add(
-                        object.rotation,
-                        'y',
-                        -(Math.PI * 2),
-                        Math.PI * 2,
-                    )
-                    thisFolder.add(
-                        object.rotation,
-                        'z',
-                        -(Math.PI * 2),
-                        Math.PI * 2,
-                    )
+                    // const thisFolder = bonesFolder.addFolder(object.name)
+                    // thisFolder.add(
+                    //     object.rotation,
+                    //     'x',
+                    //     -(Math.PI * 2),
+                    //     Math.PI * 2,
+                    // )
+                    // thisFolder.add(
+                    //     object.rotation,
+                    //     'y',
+                    //     -(Math.PI * 2),
+                    //     Math.PI * 2,
+                    // )
+                    // thisFolder.add(
+                    //     object.rotation,
+                    //     'z',
+                    //     -(Math.PI * 2),
+                    //     Math.PI * 2,
+                    // )
                 }
             })
-            console.log('GLTF', gltf)
             if (arm) scene.remove(arm)
             // create a mesh from the imported GLTF file
             const mesh = gltf.scene.children[0]
             // give the mesh a shiny silver material
 
             mesh.scale.set(5, 5, 5)
-            // right bottom
-            // mesh.position.set(3, -3, 0)
 
             // roatet the arm
             mesh.rotation.x = 4
@@ -110,19 +105,19 @@ export const threeCanvas = () => {
             bones['finger31'].rotation.z = 0.7
             bones['finger12'].rotation.z = 0.7
 
-            mesh.position.set(1.5, -4, 0)
+            // set arm on z to 7 before tweening
+            mesh.position.set(1.5, -4, 7)
 
-            console.log('MESH', mesh)
             arm = mesh
 
-            armFolder.add(mesh.rotation, 'x', -(Math.PI * 2), Math.PI * 2)
-            armFolder.add(mesh.rotation, 'y', -(Math.PI * 2), Math.PI * 2)
-            armFolder.add(mesh.rotation, 'z', -(Math.PI * 2), Math.PI * 2)
+            // armFolder.add(mesh.rotation, 'x', -(Math.PI * 2), Math.PI * 2)
+            // armFolder.add(mesh.rotation, 'y', -(Math.PI * 2), Math.PI * 2)
+            // armFolder.add(mesh.rotation, 'z', -(Math.PI * 2), Math.PI * 2)
 
-            // position
-            armFolder.add(mesh.position, 'x', -10, 10)
-            armFolder.add(mesh.position, 'y', -10, 10)
-            armFolder.add(mesh.position, 'z', -10, 10)
+            // // position
+            // armFolder.add(mesh.position, 'x', -10, 10)
+            // armFolder.add(mesh.position, 'y', -10, 10)
+            // armFolder.add(mesh.position, 'z', -10, 10)
 
             scene.add(arm)
         })
@@ -206,6 +201,42 @@ export const threeCanvas = () => {
         lowerTween.start()
     }
 
+    const onCallHelp = () => {
+        if (!arm) return
+
+        const timeout = setTimeout(() => {
+            // .yoyo(true)
+            // .repeat(1)
+            clearTimeout(timeout)
+
+            rotationTween.start()
+            backTween.start()
+        }, 5000)
+
+        // move arm on the z axis to the front (0)
+        // tween that movement
+        const zTween = new TWEEN.Tween(arm.position)
+            .to({ z: 0 }, 1500)
+            .easing(TWEEN.Easing.Quadratic.Out)
+            .yoyo(true)
+
+        const backTween = new TWEEN.Tween(arm.position)
+            .to({ z: 7 }, 1500)
+            .easing(TWEEN.Easing.Quadratic.Out)
+        // .yoyo(true)
+        // .repeat(1)
+
+        zTween.start()
+
+        const rotationTween = new TWEEN.Tween(arm.rotation)
+            .to({ x: 0, y: 0, z: 0 }, 1500)
+            .easing(TWEEN.Easing.Quadratic.Out)
+            .yoyo(true)
+            .repeat(1)
+
+        // after a timeout of 5s move arm back to the original position
+    }
+
     const _render = () => {
         // controls.update()
         TWEEN.update()
@@ -237,7 +268,7 @@ export const threeCanvas = () => {
             window.addEventListener('mousemove', onMouseMove)
 
             window.addEventListener('click', onMouseClick)
-
+            subscribeToEvent(events.callHelp, onCallHelp)
             _render()
         },
     }

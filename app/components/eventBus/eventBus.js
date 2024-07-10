@@ -1,7 +1,10 @@
 export const events = {
-  highlightHuman: 'highlight-human',
-  highlightAi: 'highlight-ai',
-  openArea: 'open-area',
+    highlightHuman: 'highlight-human',
+    highlightAi: 'highlight-ai',
+    openArea: 'open-area',
+
+    initiateSecondPhase: 'initiate-second-phase',
+    callHelp: 'call-help',
 }
 
 /**
@@ -10,11 +13,11 @@ export const events = {
  * @param {any} data
  */
 export const dispatchEvent = (type, data) => {
-  window.dispatchEvent(
-    new CustomEvent(type, {
-      detail: data,
-    }),
-  )
+    window.dispatchEvent(
+        new CustomEvent(type, {
+            detail: data,
+        }),
+    )
 }
 
 /**
@@ -24,5 +27,5 @@ export const dispatchEvent = (type, data) => {
  * @returns {void}
  */
 export const subscribeToEvent = (eventType, callback) => {
-  window.addEventListener(eventType, callback)
+    window.addEventListener(eventType, callback)
 }

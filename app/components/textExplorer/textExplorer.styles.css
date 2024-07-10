@@ -1,51 +1,51 @@
 #text_explorer {
-  min-width: 100vw;
-  min-height: 100vh;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 80%;
-  transition: all 0.2s ease-in-out;
-  font-family: ABCGrammercy, serif;
-  font-variation-settings:
-    'opsz' 56,
-    'wght' 400;
-  font-feature-settings:
-    'calt' 1,
-    'liga' 1,
-    'rvrn' 1,
-    'kern' 1,
-    'rclt' 1,
-    'rlig' 1,
-    'dlig' 1,
-    'ss06' 1; /* font-variant-ligatures:  */
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    transition: all 0.2s ease-in-out;
+    font-family: ABCGrammercy, serif;
+    font-variation-settings:
+        'opsz' 56,
+        'wght' 400;
+    font-feature-settings:
+        'calt' 1,
+        'liga' 1,
+        'rvrn' 1,
+        'kern' 1,
+        'rclt' 1,
+        'rlig' 1,
+        'dlig' 1,
+        'ss06' 1; /* font-variant-ligatures:  */
 }
 
 .epoch-holder {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
 }
 
-p {
-  display: block;
-  margin: auto 0.5rem;
-  font-size: 1.2rem;
-  text-align: left;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  transition: all 0.2s ease-in-out;
-  cursor: crosshair;
-  transition: all 0.2s ease-in-out;
-  text-wrap: nowrap;
+#text_explorer p {
+    display: block;
+    margin: auto 0.5rem;
+    font-size: 1.2rem;
+    text-align: left;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    transition: all 0.2s ease-in-out;
+    cursor: crosshair;
+    transition: all 0.2s ease-in-out;
+    text-wrap: nowrap;
 }
 
 /* p:hover,
@@ -54,33 +54,105 @@ p:hover ~ p {
   color: var(--black) !important;
 } */
 
-::selection {
-  background-color: transparent;
+#text_explorer ::selection {
+    background-color: transparent;
+    color: var(--black);
 }
 
 .epoch-holder .text-a,
 .epoch-holder .text-b {
-  overflow: hidden;
-  animation: fadeIn 0.5s ease-in-out;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    height: 0;
-  }
+    from {
+        opacity: 0;
+        height: 0;
+    }
 
-  to {
-    opacity: 1;
-    height: 28px;
-  }
+    to {
+        opacity: 1;
+        height: 28px;
+    }
 }
 
 .highlight-humanity,
 .highlight-engineer,
 .highlight-ai {
-  /* display: inline-block; */
-  transition: all 0.2s ease-in-out;
+    /* display: inline-block; */
+    transition: all 0.2s ease-in-out;
+}
+
+#text_explorer span {
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+    /* we need to add a space after each word to make the text not connected */
+    padding: 0 0.1rem;
+}
+#text_explorer span:hover {
+    filter: url(#n2) blur(0.5px);
+    color: var(--gray-100);
+    /* transform: translateY(4px); */
+}
+
+.headline {
+    font-variation-settings:
+        'opsz' 90,
+        'wght' 200;
+    font-feature-settings: 'calt' 1;
+    cursor: crosshair;
+}
+
+.headline-1 {
+    position: absolute;
+    bottom: calc(50% - 2rem);
+}
+.headline-2 {
+    position: absolute;
+    top: calc(50% - 2rem);
+}
+
+.headline-1-move {
+    animation: headline-1 0.5s ease-in-out forwards;
+}
+
+.headline-2-move {
+    animation: headline-2 0.5s ease-in-out forwards;
+}
+
+.headline-fade-out {
+    transition: all 1s ease-in-out;
+    opacity: 0;
+}
+
+/* animate to the top */
+@keyframes headline-1 {
+    from {
+        bottom: calc(50% - 2rem);
+    }
+    to {
+        bottom: calc(100% - 5rem);
+    }
+}
+
+@keyframes headline-2 {
+    from {
+        top: calc(50% - 2rem);
+    }
+    to {
+        top: calc(100% - 5rem);
+    }
+}
+
+/* fade-out */
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
 /* .highlight-human:hover {
