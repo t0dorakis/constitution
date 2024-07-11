@@ -1,17 +1,18 @@
 // Utility function to wait for a given amount of milliseconds
 import { Link } from '../../components/Link'
+import { store } from '../state/store'
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 const typingDelay = 10
-const wildnessLevel = 0
 
 // Function to simulate human typing with optional spans for each character
 const humanTextSimulator = async (text, element, wrapInSpans = false) => {
+    const wildnessLevel = store.getState().wildernessLevel
     for (let i = 0; i < text.length; i++) {
         let char = text[i]
 
         // Simulate errors based on wildness level
-        if (Math.random() < wildnessLevel / 20) {
+        if (Math.random() < wildnessLevel / 500) {
             // Higher wildness level means more frequent mistakes
             if (Math.random() < 0.5 && i < text.length - 1) {
                 // Flip characters
@@ -56,6 +57,7 @@ export const streamElements = async (elementArray, container) => {
                 const linkElement = document.createElement('a')
                 linkElement.dataset.originalText = child.textContent
                 linkElement.dataset.id = child.dataset.id
+                linkElement.dataset.pictureId = child.dataset.pictureId
                 linkElement.className = child.className // Preserve class
                 newElement.appendChild(linkElement)
                 await humanTextSimulator(child.textContent, linkElement, true)

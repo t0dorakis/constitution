@@ -3,11 +3,13 @@ import { store } from '../../utils/state/store'
 
 const wildnessLevel = store.getState().wildernessLevel
 const maxWildernessLevel = 10
+let interval
 
 function randomMarkTextNode(node) {
     const wildernessLevel = store.getState().wildernessLevel
+
     const probability = wildernessLevel / 1000
-    if (probability === 0) {
+    if (probability === 0 || wildernessLevel < 3) {
         return
     }
     const text = node.textContent
@@ -57,7 +59,6 @@ function applyRandomMarking(element) {
 
 export const Effector = () => {
     let element
-    let interval
     const _render = () => {
         if (!element) return
     }
@@ -76,6 +77,8 @@ export const Effector = () => {
     return {
         /** @param {HTMLElement} container */
         init: (container) => {
+            clearInterval(interval)
+
             element = container
             // track mouse position and change the transform skew value by a tiny amount, depending on the distance from the center
 
@@ -86,7 +89,7 @@ export const Effector = () => {
                 const basicText = element.querySelector('.basic-text')
                 const sideDrawer = element.querySelector('#side_drawer')
                 if (basicText) {
-                    // applyRandomMarking(basicText)
+                    applyRandomMarking(basicText)
                 }
                 if (sideDrawer) {
                     applyRandomMarking(sideDrawer)

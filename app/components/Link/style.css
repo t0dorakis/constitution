@@ -1,12 +1,5 @@
 a.visited {
-    color: var(--gray-200) !important;
-}
-
-/* visited links should not have any hover effect */
-a.visited:hover span {
-    color: var(--gray-200) !important;
-    transform: none !important;
-    filter: none !important;
+    color: var(--gray-600) !important;
 }
 
 .basic-text a {
@@ -41,13 +34,20 @@ a.sideDrawer:after {
     transform: translate(0px, -20px);
 }
 
-a.sideDrawer:hover {
+a.sideDrawer:hover,
+a.videoAppend:hover {
     /* the link consists of spans per character, on hover these spans should be transformed in a way that they appear as forming an arc */
     color: var(--black);
 }
-a.pictureAppend:hover {
+a.pictureAppend:hover,
+a.videoAppend:hover {
     /* the link consists of spans per character, on hover these spans should be transformed in a way that they appear as forming an arc */
     color: blue;
+}
+
+a.videoAppend {
+    color: var(--black);
+    font-family: 'ABCConnect Nail', monospace;
 }
 
 a.sideDrawer:hover span:nth-child(1) {
@@ -109,4 +109,42 @@ a.sideDrawer:hover span:nth-child(18) {
 }
 a.sideDrawer:hover span:nth-child(19) {
     transform: translate(0px, 12px) rotate(-5deg);
+}
+a.inParagraphAppend {
+    display: inline !important;
+    position: relative;
+    color: var(--black);
+    transition: all 0.2s ease-in-out;
+    text-decoration: none !important;
+}
+/* underline the text with a div  */
+a.inParagraphAppend::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--black);
+    transform: translateY(-500%);
+    transition: all 0.2s ease-in-out;
+}
+
+a.inParagraphAppend span {
+    display: inline !important;
+}
+
+a.inParagraphAppend:hover {
+    color: black;
+    /* filter: url(#n1); */
+    /* color: var(--gray-100) !important; */
+    letter-spacing: 0.1rem;
+}
+
+a.inParagraphAppend.visited {
+    color: var(--gray-600) !important;
+    filter: none !important;
+}
+a.inParagraphAppend.visited::after {
+    background-color: var(--gray-600) !important;
 }
