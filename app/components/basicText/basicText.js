@@ -16,6 +16,8 @@ export async function setupBasicText(element) {
 
     // Append the temporary element with filter to the body
     const tempDiv = document.createElement('div')
+    // hide the filter div
+    tempDiv.classList.add('hidden')
     tempDiv.innerHTML = filter
     document.body.appendChild(tempDiv)
 
