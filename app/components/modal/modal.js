@@ -52,9 +52,16 @@ export const openModal = (element, options) => {
         `
     }
 
-    if (image) {
+    if (image && type === 'image') {
         modalContent.innerHTML = `
             <img src="${image}"/>
+        `
+    }
+
+    if (image && type === 'video') {
+        modalContent.innerHTML = `
+            <video src="${image}" controls="false" autoplay loop playsinline>
+            </video>
         `
     }
 

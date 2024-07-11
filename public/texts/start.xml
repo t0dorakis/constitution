@@ -1,4 +1,33 @@
 
-<p class='text-thrower-article' data-id="1">
+<!-- <p class='text-thrower-article' data-id="1">
   <a class='sideDrawer' data-id="1">we</a> would like to congratulate you on the <a class='inParagraphAppend' data-id="2">purchase</a> of your <a class='simpleAppend' data-id="1">Spectra-42</a>, the <a class='inParagraphAppend' data-id="machine">machine<a> that not only thinks but believes it <a class='sideDrawer' data-id="2">feels</a>. This interactive guide will help you get to know your new home-companion to get the most out of your new assistent. 
+</p> -->
+
+<p class='text-thrower-article'>
+  <a class='inParagraphAppend menu-point pictureAppend sideDrawer' data-id="1" data-picture-id="radical_experimental_visualization.png"  data-side-drawer-id="1">
+     Governance and Innovation
+  </a>
+</p>
+<p class='text-thrower-article'>
+  <a class='inParagraphAppend menu-point pictureAppend' data-id="2" data-picture-id="cryptic_visualization.png">
+    Evolution and Integration
+  </a>
+</p>
+<p class='text-thrower-article'>
+  <a class='inParagraphAppend menu-point' data-id="3">
+    Special Events
+  </a>
+</p>
+<p class='text-thrower-article'>
+  <a class='inParagraphAppend menu-point videoAppend' data-id="4" data-picture-id="father.mp4">
+Temporal and Emotional Enhancements
+  </a>
+</p>
+<p class='text-thrower-article'>
+  <a class='inParagraphAppend menu-point' data-id="5">
+Luminary Custodian  </a>
+</p>
+<p class='text-thrower-article'>
+  <a class='inParagraphAppend menu-point pictureAppend' data-id="6" data-picture-id="toast_viz_1.jpg">
+Ongoing Evolution  </a>
 </p>

@@ -1,4 +1,3 @@
-import { mod } from 'three/examples/jsm/nodes/Nodes.js'
 import { textArray } from '../../assets/data/text-array'
 import './textExplorer.styles.css'
 import { textSplitter } from './textSplitter'

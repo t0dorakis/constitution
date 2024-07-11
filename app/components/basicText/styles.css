@@ -53,9 +53,12 @@ main {
     line-height: 90%;
     margin-block-start: 0;
     margin-block-end: 0;
-    color: var(--gray-500);
+    font-variation-settings:
+        'opsz' 56,
+        'wght' 400;
+    color: var(--black);
     transform: translateX(-5px);
-    min-height: 150px;
+    min-height: 180px;
     /* fadein on load  */
     animation: fadeIn 1s ease-in-out forwards;
 }
@@ -74,7 +77,7 @@ main {
     font-weight: 300;
     font-size: 1.5rem;
     text-align: left;
-    color: var(--gray-500);
+    color: var(--gray-900);
 }
 
 .basic-text p {
@@ -87,12 +90,15 @@ main {
 }
 
 .inside-paragraph-container {
-    margin-left: 20%;
+    margin-top: 1rem;
+    margin-left: 3.1rem;
+    max-width: 800px;
 }
 p.inside-paragraph {
     color: black;
     max-width: 100%;
     font-size: 1.5rem;
+    line-height: 130%;
     font-variation-settings:
         'opsz' 56,
         'wght' 400;
@@ -105,4 +111,20 @@ p.inside-paragraph {
         'rlig' 1,
         'dlig' 1;
     /* 'ss06' 1; */
+}
+
+.menu-point-sign {
+    display: inline;
+    text-decoration: none;
+    transform: none;
+}
+
+.list-element {
+    margin-block-start: 0.8rem !important;
+    margin-block-end: 0.8rem !important;
+    margin-inline-start: 16px;
+}
+
+.list-element:before {
+    content: '—';
 }

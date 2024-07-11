@@ -1,11 +1,9 @@
 import { fetchTextByUrl } from '../textFetcher'
 import { streamElements } from '../animators'
-import { store } from '../state/store'
 // Function to fetch new content and append it after the clicked element
 
 export const inParagraphAppend = async (url, clickedElement, container) => {
     const id = clickedElement.dataset.id
-    const wildernessLevel = store.getState().wildernessLevel
     const fetchedText = await fetchTextByUrl('texts/level-1/' + id + '.xml')
 
     // Create a temporary DOM element to hold fetched HTML
