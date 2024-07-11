@@ -59,6 +59,7 @@ main {
     color: var(--black);
     transform: translateX(-5px);
     min-height: 180px;
+    max-width: 700px;
     /* fadein on load  */
     animation: fadeIn 1s ease-in-out forwards;
 }
