@@ -34,6 +34,10 @@ a.sideDrawer:after {
     transform: translate(0px, -20px);
 }
 
+p.inside-paragraph a.sideDrawer:after {
+    font-size: 1.1rem;
+}
+
 a.sideDrawer:hover,
 a.videoAppend:hover {
     /* the link consists of spans per character, on hover these spans should be transformed in a way that they appear as forming an arc */

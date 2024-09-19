@@ -66,8 +66,8 @@ export function setupTextExplorer(containerElement) {
         } else if (currentEpoch === textArray.length - 1) {
             openModal(document.querySelector('#app'), {
                 type: 'dvelve',
-                text: 'start the setup for you harmonious co-existance',
-                cta: 'dvelve now!',
+                text: 'start the setup for you harmonious co-existence',
+                cta: 'delve now!',
                 // image: "/app/assets/images/dvelve.png",
                 width: 400,
                 height: 250,
