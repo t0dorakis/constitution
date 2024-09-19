@@ -54,7 +54,7 @@ export function setupThreeCanvas(element) {
   }
   window.addEventListener('mouseleave', onMouseLeave)
 
-  loader.load('/app/assets/models/face.glb', (gltf) => {
+  loader.load('./app/assets/models/face.glb', (gltf) => {
     face = gltf.scene.children[0]
     // give the face a shiny silver material
 
