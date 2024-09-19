@@ -58,7 +58,7 @@ export const threeCanvas = () => {
 
         // import the GLTF file
         const loader = new GLTFLoader()
-        await loader.load('./app/assets/models/armature2.glb', async (gltf) => {
+        await loader.load('models/armature2.glb', async (gltf) => {
             const model = gltf.scene
             // const bonesFolder = armFolder.addFolder('Bones')
 
