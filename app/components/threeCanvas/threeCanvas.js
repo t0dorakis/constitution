@@ -34,7 +34,7 @@ export const threeCanvas = () => {
         scene = new THREE.Scene()
         camera = new PerspectiveCameraAuto(70).translateZ(5)
         new RGBELoader()
-            .setPath('/app/assets/models/')
+            .setPath('models/')
             .load('skybox.hdr', (texture) => {
                 texture.mapping = THREE.EquirectangularReflectionMapping
 

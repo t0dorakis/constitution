@@ -43,7 +43,7 @@ export function setupTextExplorer(containerElement) {
     //     type: 'dvelve',
     //     text: 'start the setup for you harmonious co-existance',
     //     cta: 'dvelve now!',
-    //     // image: "/app/assets/images/dvelve.png",
+    //     // image: "images/dvelve.png",
     //     width: 400,
     //     height: 250,
     // })
@@ -68,7 +68,7 @@ export function setupTextExplorer(containerElement) {
                 type: 'dvelve',
                 text: 'start the setup for you harmonious co-existence',
                 cta: 'delve now!',
-                // image: "/app/assets/images/dvelve.png",
+                // image: "images/dvelve.png",
                 width: 400,
                 height: 250,
             })
