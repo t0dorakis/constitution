@@ -1,5 +1,3 @@
-// router.js
-
 class Router {
     constructor(routes) {
         this.routes = routes
@@ -26,7 +24,9 @@ class Router {
 
     handleRoute() {
         const path = window.location.pathname
-        const route = this.routes[path] || this.routes['/404']
+        // I short circuited the path for old school ftp hosting reasons
+        const route = this.routes['/']
+        // const route = this.routes[path] || this.routes['/404']
         if (typeof route.ref === 'function') {
             route.ref()
         } else {
